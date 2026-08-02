@@ -26,11 +26,6 @@
 
 ;; (origami-mode)
 
-;; (put 'upcase-region 'disabled nil)
-;; (put 'downcase-region 'disabled nil)
-
-;; (put 'set-goal-column 'disabled nil)
-
 ;; auto generated code
 (custom-set-variables
  ;; custom-set-variables was added by Custom.

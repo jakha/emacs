@@ -8,6 +8,12 @@
 
 (setq-default tab-width 4)
 
+
+;; (put 'upcase-region 'disabled nil)
+;; (put 'downcase-region 'disabled nil)
+;; (put 'set-goal-column 'disabled nil)
+
+
 ;; to not show line toggle sign 
 (setf (cdr (assq 'continuation fringe-indicator-alist))
       '(nil nil) ;; no continuation indicators

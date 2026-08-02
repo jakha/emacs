@@ -26,11 +26,9 @@
 (load (concat user-emacs-directory "base.conf/init-icons.el"))
 
 ;; (load (concat user-emacs-directory "base.conf/init-diminish.el"))
-
 (load (concat user-emacs-directory "base.conf/init-projectile.el"))
 
 ;; (load (concat user-emacs-directory "base.conf/init-ligatures.el"))
-
 (load (concat user-emacs-directory "base.conf/init-magit.el"))
 
 ;;(load (concat user-emacs-directory "base.conf/init-polymodes.el"))
