@@ -76,4 +76,21 @@ Version 2017-09-01"
          (message "File path copied: 「%s」" $fpath)
          $fpath )))))
 
+
+(defun duplicate-line()
+  (interactive)
+  (move-beginning-of-line 1)
+  (kill-line)
+  (yank)
+  (open-line 1)
+  (next-line 1)
+  (yank))
+
+(defun buffer-background-black ()
+  "."
+  (interactive)
+  (setq buffer-face-mode-face `(:background "black"))
+  (buffer-face-mode 1))
+
+
 (load (concat user-emacs-directory "utils/b.el"))

@@ -1,4 +1,5 @@
 elpa/
+qelpa/
 site-lisp/
 eshell/
 languages/php/files/
@@ -6,7 +7,6 @@ url/
 transient/
 recentf
 projectile.cache
-projectile-bookmarks.eld
 desktop/
 .cache/
 .emacs.desktop
@@ -25,3 +25,4 @@ wget-log
 tramp
 eln-cache/
 projects
+*.eld

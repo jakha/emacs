@@ -1,3 +1,3 @@
 (use-package docker
   :ensure t
-  :bind ("C-c d" . docker-compose))
+  :bind ("s-c d" . docker-compose))

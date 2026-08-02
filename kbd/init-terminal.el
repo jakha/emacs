@@ -1,5 +1,7 @@
 (use-package multi-vterm
   :ensure t)
+(use-package vterm
+  :ensure t)
 
 (require 'multi-vterm)
 

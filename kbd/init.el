@@ -14,8 +14,9 @@
 
 
 ;; cut and paste to alt kbd
-(define-key global-map (kbd "M-q") 'kill-region)
-(define-key global-map (kbd "M-e") '(lambda (&optional ARG)
+(define-key global-map (kbd "C-c") 'kill-ring-save)
+(define-key global-map (kbd "C-x") 'kill-region)
+(define-key global-map (kbd "C-v") '(lambda (&optional ARG)
 				      (interactive)
 				      (when (not (null (region-active-p)))
 					(delete-region (region-beginning) (region-end)))
@@ -50,10 +51,13 @@
 (global-set-key (kbd "C-}") 'shrink-window-horizontally)
 
 
-(define-key global-map (kbd "C-c r") 'counsel-rg)
+;;(define-key global-map (kbd "C-c r") 'counsel-rg)
 
 (define-key global-map (kbd "C->") 'mc/mark-next-like-this)
 
+(progn (global-set-key (kbd "M-<right>") 'other-window)
+	   (global-set-key (kbd "M-<left>") 'back-window)
+)
 
 (provide 'init)
 ;;; init.el ends here

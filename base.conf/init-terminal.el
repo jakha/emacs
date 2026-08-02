@@ -1,10 +1,9 @@
+;;(use-package vterm
+  ;;:ensure t)
 
-(use-package vterm
-  :ensure t)
+;;(use-package multi-vterm
+  ;;:ensure t)
 
-(use-package multi-vterm
-  :ensure t)
-
-(defun make-terminal ()
-  "."
-  (multi-vterm-project))
+;;(defun make-terminal ()
+  ;;"."
+  ;;(multi-vterm-project))
