@@ -35,7 +35,7 @@
  '(custom-safe-themes
    '("9af2b1c0728d278281d87dc91ead7f5d9f2287b1ed66ec8941e97ab7a6ab73c0" "83447ed09cba2ec725225cb3789b38ba94bd4ec4e0253e8d85f278076bc5b6cf" "aec7b55f2a13307a55517fdf08438863d694550565dee23181d2ebd973ebd6b8" "87fa3605a6501f9b90d337ed4d832213155e3a2e36a512984f83e847102a42f4" default))
  '(package-selected-packages
-   '(smartparens quelpa-use-package quelpa doom-modeline rg magit-delta magit sublimity projectile ivy-file-preview docker dashboard counsel all-the-icons)))
+   '(multi-vterm vterm smartparens quelpa-use-package quelpa doom-modeline rg magit-delta magit sublimity projectile ivy-file-preview docker dashboard counsel all-the-icons)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
