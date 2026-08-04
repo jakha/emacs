@@ -6,6 +6,17 @@
 
 (delete-selection-mode t)  ; delete seleted text when typing
 
+(unless (display-graphic-p)
+  (define-key input-decode-map "\e[1;2A" [S-up])
+  (define-key input-decode-map "\e[1;2B" [S-down])
+  (define-key input-decode-map "\e[1;2C" [S-right])
+  (define-key input-decode-map "\e[1;2D" [S-left])
+  ;; заодно C-стрелки и M-стрелки, они тоже часто отваливаются
+  (define-key input-decode-map "\e[1;5C" [C-right])
+  (define-key input-decode-map "\e[1;5D" [C-left])
+  (define-key input-decode-map "\e[1;3C" [M-right])
+  (define-key input-decode-map "\e[1;3D" [M-left]))
+
 (setq-default tab-width 4)
 ;; tramp not use version co 
 (setq vc-handled-backends 'nil)
