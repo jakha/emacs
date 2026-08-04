@@ -46,7 +46,7 @@
 (load (concat user-emacs-directory "base.conf/init-terminal.el"))
 
 (load (concat user-emacs-directory "base.conf/init-rg.el"))
-
+	  
 (load (concat user-emacs-directory "themes/doom-mode-line.el"))
 
 (load (concat user-emacs-directory "themes/after-use-package.el"))

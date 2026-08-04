@@ -7,7 +7,11 @@
 (delete-selection-mode t)  ; delete seleted text when typing
 
 (setq-default tab-width 4)
-
+;; tramp not use version co 
+(setq vc-handled-backends 'nil)
+(setq tramp-verbose 1                          ; default 3, logging costs time
+      remote-file-name-inhibit-locks t         ; skip lock files
+      tramp-use-scp-direct-remote-copying t)
 
 ;; (put 'upcase-region 'disabled nil)
 ;; (put 'downcase-region 'disabled nil)

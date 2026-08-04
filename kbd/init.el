@@ -12,11 +12,10 @@
 (define-key global-map (kbd "C-<right>") 'forward-word)
 (define-key global-map (kbd "C-<left>") 'backward-word)
 
-
 ;; cut and paste to alt kbd
-(define-key global-map (kbd "C-c") 'kill-ring-save)
-(define-key global-map (kbd "C-x") 'kill-region)
-(define-key global-map (kbd "C-v") '(lambda (&optional ARG)
+(define-key global-map (kbd "M-w") 'kill-ring-save)
+(define-key global-map (kbd "M-e") 'kill-region)
+(define-key global-map (kbd "M-q") '(lambda (&optional ARG)
 				      (interactive)
 				      (when (not (null (region-active-p)))
 					(delete-region (region-beginning) (region-end)))

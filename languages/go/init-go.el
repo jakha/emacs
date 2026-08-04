@@ -248,13 +248,6 @@
 				(goto-char current-point-max))
 			  (setq lexical-point-max current-point-max)))))))
 
-(defun ide-make-terminal ()
-  "."
-  (interactive)
-  (setf default-directory (projectile-project-root))
-  (make-terminal))
-
-
 (defun goja-get-package ()
   "."
   (interactive)
