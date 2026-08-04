@@ -27,3 +27,4 @@ eln-cache/
 projects
 *.eld
 projectile-frecency.eld
+server/
