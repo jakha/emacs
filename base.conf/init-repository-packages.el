@@ -50,3 +50,16 @@
 (load (concat user-emacs-directory "themes/doom-mode-line.el"))
 
 (load (concat user-emacs-directory "themes/after-use-package.el"))
+
+;; use-package 2.4.4 (site-lisp clone) has no :vc keyword, so install by hand.
+;; vc-handled-backends is nil (see base.conf/init.el), and vc-clone refuses any
+;; backend missing from it, so put Git back for the duration of the checkout.
+(unless (package-installed-p 'claude-code-ide)
+  (require 'vc-git)
+  (let ((vc-handled-backends '(Git)))
+    (package-vc-install "https://github.com/manzaltu/claude-code-ide.el")))
+
+(use-package claude-code-ide
+  :bind ("C-c C-'" . claude-code-ide-menu) ; Set your favorite keybinding
+  :config
+  (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
