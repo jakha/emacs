@@ -60,6 +60,6 @@
     (package-vc-install "https://github.com/manzaltu/claude-code-ide.el")))
 
 (use-package claude-code-ide
-  :bind ("C-c C-'" . claude-code-ide-menu) ; Set your favorite keybinding
+  :bind ("C-c C-s'" . claude-code-ide-menu) ; Set your favorite keybinding
   :config
   (claude-code-ide-emacs-tools-setup)) ; Optionally enable Emacs MCP tools
