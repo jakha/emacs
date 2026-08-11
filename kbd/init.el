@@ -46,9 +46,9 @@
 
 (global-set-key (kbd "C-d") 'duplicate-line)
 
-(global-set-key (kbd "C-{") 'enlarge-window-horizontally)
-(global-set-key (kbd "C-}") 'shrink-window-horizontally)
-
+(global-set-key (kbd "M-{") 'enlarge-window-horizontally)
+(global-set-key (kbd "M-}") 'shrink-window-horizontally)
+(global-set-key (kbd "M-^") 'enlarge-window)
 
 ;;(define-key global-map (kbd "C-c r") 'counsel-rg)
 
