@@ -1,0 +1,18 @@
+# Global phpantom_lsp config, installed by scripts/install-php-deps.sh
+# to ~/.config/phpantom_lsp/.phpantom.toml.
+# A project's own .phpantom.toml is merged over it key by key.
+# Schema: https://github.com/PHPantom-dev/phpantom_lsp/blob/main/config-schema.json
+
+[diagnostics]
+workspace = true
+
+# Formatting: phpantom's built-in PER-CS formatter, or the project's
+# php-cs-fixer / pint / phpcbf when composer.json requires them.
+
+# phpstan / phpcs commands are left unset: phpantom takes vendor/bin first,
+# then the pinned phars in ~/.local/bin via PATH.
+[phpstan]
+memory-limit = "1G"
+
+[phpcs]
+standard = "PSR12"

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; buffer split and close
 (define-key global-map (kbd "M-1") 'delete-other-windows)
 (define-key global-map (kbd "M-2") 'split-window-right)

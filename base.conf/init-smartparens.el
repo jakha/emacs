@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (use-package smartparens
   :ensure smartparens
   :commands (smartparens turn-on-smartparens-strict-mode)

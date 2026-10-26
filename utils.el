@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 
 ;;
 ;; Check that is repo by name is exist at package archives list
