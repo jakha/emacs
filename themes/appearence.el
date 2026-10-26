@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; remove menu from head
 (menu-bar-mode -1)
 ;; remove toolbar from head

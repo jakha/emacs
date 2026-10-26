@@ -1,8 +1,12 @@
+;;; -*- lexical-binding: t -*-
 ;;; package --- emacs
 ;;; Commentary:
 ;;; Code:
 
 (require 'package)
+
+;; third-party packages' native-comp warnings go to *Native-compile-Log* only
+(setq native-comp-async-report-warnings-errors 'silent)
 
 (load (concat user-emacs-directory "utils.el"))
 

@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (global-auto-revert-mode t)
 ;; to save 
 (auto-save-visited-mode)

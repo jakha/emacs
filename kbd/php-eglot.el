@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 (with-eval-after-load 'eglot
   (define-key eglot-mode-map (kbd "S-<f6>") 'eglot-rename)
 

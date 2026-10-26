@@ -1,3 +1,4 @@
+;;; -*- lexical-binding: t -*-
 ;; install required inheritenv dependency:
 (require 'vc-git)
 (add-to-list 'vc-handled-backends 'Git)
