@@ -28,3 +28,4 @@ projects
 *.eld
 projectile-frecency.eld
 server/
+tree-sitter/
