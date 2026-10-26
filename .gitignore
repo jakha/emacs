@@ -24,7 +24,7 @@ ac-comphist.dat
 wget-log
 tramp
 eln-cache/
-projects
+projects/
 *.eld
 projectile-frecency.eld
 server/
