@@ -21,7 +21,7 @@
         :executables ("go" "gopls"))
     (markdown :feature markdown-ts-mode
               :grammars (markdown markdown-inline)
-              :executables ("marksman"))
+              :executables ("marksman" "pandoc"))
     (yaml :feature yaml-ts-mode
           :grammars (yaml)
           :executables ("yaml-language-server")))

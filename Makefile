@@ -75,6 +75,7 @@ go-check: emacs-check
 
 markdown-check: emacs-check
 	marksman --version | grep -qx '$(MARKSMAN_VERSION)'
+	pandoc --version | head -1 | grep -qx 'pandoc $(PANDOC_VERSION)'
 	$(EMACS_BATCH) -f ide-verify markdown
 
 yaml-check: emacs-check
