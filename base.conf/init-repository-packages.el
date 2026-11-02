@@ -42,6 +42,10 @@
 
 (load (concat user-emacs-directory "languages/go/init-go-ide.el"))
 
+(load (concat user-emacs-directory "languages/markdown/init-markdown-ide.el"))
+
+(load (concat user-emacs-directory "languages/yaml/init-yaml-ide.el"))
+
 (load (concat user-emacs-directory "kbd/init-packages-kbd.el"))
 
 ;; (load (concat user-emacs-directory "base.conf/init-treemacs.el"))

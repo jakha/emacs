@@ -1,0 +1,7 @@
+{
+  "private": true,
+  "description": "yaml-language-server for the Emacs YAML IDE, installed by scripts/install-yaml-deps.sh",
+  "dependencies": {
+    "yaml-language-server": "2.0.0"
+  }
+}

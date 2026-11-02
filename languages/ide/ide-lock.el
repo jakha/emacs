@@ -2,7 +2,8 @@
 ;;; Commentary:
 ;; Installed by `make ide-elisp' (languages/ide/install.el) with package-vc.
 ;; Tree-sitter grammars are listed by name only: Emacs 31.1 pins their commits
-;; in php-ts-mode, mhtml-ts-mode and go-ts-mode, and the Emacs version itself
+;; in php-ts-mode, mhtml-ts-mode, go-ts-mode, markdown-ts-mode and
+;; yaml-ts-mode, and the Emacs version itself
 ;; is pinned in versions.env.
 ;;; Code:
 
@@ -17,7 +18,13 @@
          :executables ("phpantom_lsp"))
     (go :feature go-ts-mode
         :grammars (go gomod gowork)
-        :executables ("go" "gopls")))
+        :executables ("go" "gopls"))
+    (markdown :feature markdown-ts-mode
+              :grammars (markdown markdown-inline)
+              :executables ("marksman"))
+    (yaml :feature yaml-ts-mode
+          :grammars (yaml)
+          :executables ("yaml-language-server")))
   "Per-language tree-sitter grammars and external programs.
 :feature is loaded first so its grammar recipes are registered.")
 
