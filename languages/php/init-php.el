@@ -11,7 +11,10 @@
   (add-to-list 'eglot-server-programs
                '((php-ts-mode php-mode) . ("phpantom_lsp"))))
 
-(add-hook 'php-ts-mode-hook (lambda () (ide-eglot-setup "phpantom_lsp")))
+(add-hook 'php-ts-mode-hook
+          (lambda ()
+            (setq-local indent-tabs-mode nil) ; PSR-12: 4 spaces
+            (ide-eglot-setup "phpantom_lsp")))
 (ide-format-on-save '(php-ts-mode))
 
 (load (concat user-emacs-directory "kbd/php.el"))
