@@ -7,6 +7,21 @@
 
 (delete-selection-mode t)  ; delete seleted text when typing
 
+;; Backspace / Delete / набор текста поверх выделения просто удаляют
+;; область, не кладя её в kill-ring (вырезать — только M-q).
+(setq delete-active-region t)
+
+(defun my/delete-region-no-kill (orig-fn &rest args)
+  "Если есть выделение — удалить его без записи в kill-ring."
+  (if (use-region-p)
+      (delete-region (region-beginning) (region-end))
+    (apply orig-fn args)))
+
+;; smartparens-команды удаления при выделении иначе могут вызывать kill-region
+(with-eval-after-load 'smartparens
+  (dolist (fn '(sp-delete-char sp-backward-delete-char))
+    (advice-add fn :around #'my/delete-region-no-kill)))
+
 (unless (display-graphic-p)
   (define-key input-decode-map "\e[1;2A" [S-up])
   (define-key input-decode-map "\e[1;2B" [S-down])

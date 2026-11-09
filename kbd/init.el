@@ -13,14 +13,17 @@
 (define-key global-map (kbd "C-<right>") 'forward-word)
 (define-key global-map (kbd "C-<left>") 'backward-word)
 
-;; cut and paste to alt kbd
+;; cut / copy / paste: M-q / M-w / M-e
+(defun my/paste-replace-region ()
+  "Вставить из kill-ring; выделенная область заменяется и в kill-ring не попадает."
+  (interactive "*")
+  (when (use-region-p)
+    (delete-region (region-beginning) (region-end)))
+  (yank))
+
+(define-key global-map (kbd "M-q") 'kill-region)
 (define-key global-map (kbd "M-w") 'kill-ring-save)
-(define-key global-map (kbd "M-e") 'kill-region)
-(define-key global-map (kbd "M-q") '(lambda (&optional ARG)
-				      (interactive)
-				      (when (not (null (region-active-p)))
-					(delete-region (region-beginning) (region-end)))
-				      (yank)))
+(define-key global-map (kbd "M-e") #'my/paste-replace-region)
 (define-key global-map (kbd "C-a") 'mark-whole-buffer)
 (define-key global-map (kbd "C-z") 'undo)
 
