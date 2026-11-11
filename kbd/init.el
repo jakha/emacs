@@ -9,7 +9,15 @@
 (define-key global-map (kbd "M-s") 'save-buffer)
 
 ;; kill buffer
-(define-key global-map (kbd "C-k") (lambda () (interactive) (kill-buffer (buffer-name))))
+(defun my/kill-current-buffer ()
+  "Закрыть буфер; если файл изменён — спросить, сохранить ли."
+  (interactive)
+  (when (and buffer-file-name (buffer-modified-p))
+    (if (y-or-n-p (format "Сохранить %s? " (buffer-name)))
+        (save-buffer)
+      (set-buffer-modified-p nil)))     ; «n» = выбросить изменения
+  (kill-buffer (current-buffer)))
+(define-key global-map (kbd "C-k") #'my/kill-current-buffer)
 (define-key global-map (kbd "C-<right>") 'forward-word)
 (define-key global-map (kbd "C-<left>") 'backward-word)
 
