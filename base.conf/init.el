@@ -1,11 +1,40 @@
 ;;; -*- lexical-binding: t -*-
 (global-auto-revert-mode t)
-;; to save 
-(auto-save-visited-mode)
+;; Автосохранение только для локальных файлов внутри git-репозитория;
+;; остальные Emacs предложит сохранить при закрытии буфера / выходе.
+(defvar-local my/in-git-repo 'unknown
+  "Кэш: находится ли файл буфера в git-репозитории.")
+
+(defun my/auto-save-in-git-p ()
+  "Предикат для `auto-save-visited-mode': только файлы в git."
+  (when (and buffer-file-name
+             (not (file-remote-p buffer-file-name))) ; TRAMP не трогаем
+    (when (eq my/in-git-repo 'unknown)
+      (setq my/in-git-repo
+            (and (locate-dominating-file buffer-file-name ".git") t)))
+    my/in-git-repo))
+
+(setq auto-save-visited-predicate #'my/auto-save-in-git-p)
+(auto-save-visited-mode 1)
 
 (desktop-save-mode 1)
 
 (delete-selection-mode t)  ; delete seleted text when typing
+
+;; Backspace / Delete / набор текста поверх выделения просто удаляют
+;; область, не кладя её в kill-ring (вырезать — только M-q).
+(setq delete-active-region t)
+
+(defun my/delete-region-no-kill (orig-fn &rest args)
+  "Если есть выделение — удалить его без записи в kill-ring."
+  (if (use-region-p)
+      (delete-region (region-beginning) (region-end))
+    (apply orig-fn args)))
+
+;; smartparens-команды удаления при выделении иначе могут вызывать kill-region
+(with-eval-after-load 'smartparens
+  (dolist (fn '(sp-delete-char sp-backward-delete-char))
+    (advice-add fn :around #'my/delete-region-no-kill)))
 
 (unless (display-graphic-p)
   (define-key input-decode-map "\e[1;2A" [S-up])
