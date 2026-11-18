@@ -55,7 +55,8 @@
 (defun ide-install-grammars (languages)
   "Build tree-sitter grammars of LANGUAGES from the recipes pinned by Emacs."
   (dolist (language languages)
-    (require (plist-get (cdr language) :feature))
+    (when-let* ((feature (plist-get (cdr language) :feature)))
+      (require feature))
     (dolist (grammar (plist-get (cdr language) :grammars))
       (if (treesit-language-available-p grammar)
           (message "ok: grammar %s" grammar)

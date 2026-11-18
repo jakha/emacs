@@ -24,9 +24,12 @@
               :executables ("marksman" "pandoc"))
     (yaml :feature yaml-ts-mode
           :grammars (yaml)
-          :executables ("yaml-language-server")))
+          :executables ("yaml-language-server"))
+    ;; protobuf-mode comes from MELPA (use-package :ensure), no grammar
+    (protobuf :grammars ()
+              :executables ("buf")))
   "Per-language tree-sitter grammars and external programs.
-:feature is loaded first so its grammar recipes are registered.")
+:feature (optional) is loaded first so its grammar recipes are registered.")
 
 (provide 'ide-lock)
 ;;; ide-lock.el ends here

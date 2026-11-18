@@ -3,7 +3,7 @@
 #
 #   make php-ide     build the PHP IDE (idempotent)
 #   make go-ide      build the Go IDE (idempotent)
-#   make markdown-ide / yaml-ide
+#   make markdown-ide / yaml-ide / protobuf-ide
 #   make ide         build all IDEs
 #   make <lang>-check   verify an installation
 
@@ -13,7 +13,7 @@ export PATH := $(HOME)/.local/bin:$(PATH)
 
 EMACS_BATCH = emacs --batch --init-directory=$(CURDIR) -l languages/ide/install.el
 
-LANGS = php go markdown yaml
+LANGS = php go markdown yaml protobuf
 
 .PHONY: ide emacs ide-elisp emacs-check $(foreach l,$(LANGS),$(l)-ide $(l)-deps $(l)-elisp $(l)-check)
 
@@ -26,6 +26,8 @@ go-ide: emacs go-deps go-elisp go-check
 markdown-ide: emacs markdown-deps markdown-elisp markdown-check
 
 yaml-ide: emacs yaml-deps yaml-elisp yaml-check
+
+protobuf-ide: emacs protobuf-deps protobuf-elisp protobuf-check
 
 emacs:
 	./scripts/build-emacs.sh
@@ -42,6 +44,9 @@ markdown-deps:
 yaml-deps:
 	./scripts/install-yaml-deps.sh
 
+protobuf-deps:
+	./scripts/install-protobuf-deps.sh
+
 php-elisp:
 	$(EMACS_BATCH) -f ide-install php
 
@@ -53,6 +58,9 @@ markdown-elisp:
 
 yaml-elisp:
 	$(EMACS_BATCH) -f ide-install yaml
+
+protobuf-elisp:
+	$(EMACS_BATCH) -f ide-install protobuf
 
 ide-elisp:
 	$(EMACS_BATCH) -f ide-install
@@ -82,3 +90,7 @@ yaml-check: emacs-check
 	grep -q '"version": "$(YAML_LS_VERSION)"' $(HOME)/.local/share/yaml-ide/node_modules/yaml-language-server/package.json
 	grep -q '"yaml-language-server": "$(YAML_LS_VERSION)"' languages/yaml/package.json
 	$(EMACS_BATCH) -f ide-verify yaml
+
+protobuf-check: emacs-check
+	buf --version | grep -qx '$(BUF_VERSION)'
+	$(EMACS_BATCH) -f ide-verify protobuf

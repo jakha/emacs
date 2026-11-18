@@ -45,6 +45,7 @@
 (load (concat user-emacs-directory "languages/markdown/init-markdown-ide.el"))
 
 (load (concat user-emacs-directory "languages/yaml/init-yaml-ide.el"))
+(load (concat user-emacs-directory "languages/protobuf/init-protobuf-ide.el"))
 
 (load (concat user-emacs-directory "kbd/init-packages-kbd.el"))
 
